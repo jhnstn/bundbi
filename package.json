@@ -1,19 +1,14 @@
 {
-  "name": "client-builder",
+  "name": "bundle-builder",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "bundle builder",
+  "scripts": {},
   "bin": {
     "bundle": "bin/cli.js"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Jason Johnston",
   "license": "ISC",
   "dependencies": {
-    "babel": "5.8.21",
     "browserify": "^12.0.1",
     "underscore": "^1.8.3",
     "watchify": "^3.6.1"
