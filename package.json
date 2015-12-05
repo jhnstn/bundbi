@@ -1,10 +1,10 @@
 {
-  "name": "bundle-builder",
+  "name": "buildify",
   "version": "1.0.0",
   "description": "bundle builder",
   "scripts": {},
   "bin": {
-    "bundle": "bin/cli.js"
+    "buildify": "bin/cli.js"
   },
   "author": "Jason Johnston",
   "license": "ISC",

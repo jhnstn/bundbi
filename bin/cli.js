@@ -7,8 +7,8 @@ const errorExit = require('../lib/error');
 
 let packageJson = require(path.resolve('./package.json'));
 
-if(!packageJson.browserify || !packageJson.browserify.bundle) {
-  console.log('nothing to do: can\'t find the bundle config');
+if(!packageJson.browserify || !packageJson.browserify.build) {
+  console.log('nothing to do: can\'t find the build config');
   process.exit(0);
 }
 
