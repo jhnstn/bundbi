@@ -7,16 +7,20 @@ const errorExit = require('../lib/error');
 
 let packageJson = require(path.resolve('./package.json'));
 
-if(!packageJson.browserify) {
-  errorExit('nothing to do');
+if(!packageJson.browserify || !packageJson.browserify.bundle) {
+  console.log('nothing to do: can\'t find the bundle config');
+  process.exit(0);
 }
 
 let builds = packageJson.browserify.bundle;
 let target = _.last(process.argv);
 let targetBundle = builds[target];
+let watch  = false;
 
 if (!targetBundle) {
-  errorExit(`nothing to do for '${target}' bundle`);
+  console.log(`nothing to do for '${target}' bundle`);
+  process.exit(0);
 }
 
-bundle(targetBundle, Object.assign(packageJson.browserify,{watch}));
+bundle(Object.assign(targetBundle, {target}),
+       Object.assign(packageJson.browserify, {watch}));
