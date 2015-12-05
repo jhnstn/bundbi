@@ -12,7 +12,7 @@ if(!packageJson.browserify || !packageJson.browserify.build) {
   process.exit(0);
 }
 
-let builds = packageJson.browserify.bundle;
+let builds = packageJson.browserify.build;
 let target = _.last(process.argv);
 let targetBundle = builds[target];
 let watch  = false;
