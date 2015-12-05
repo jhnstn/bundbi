@@ -5,12 +5,12 @@ JS builder for nbuild
 ## install
 
 ```
-npm install git@github.com:3dna/buildify.git#v0.0.1
+$ npm install git+ssh://git@github.com:3dna/buildify.git#v0.0.1
 
 # to get the cli
-npm install  -g git@github.com:3dna/buildify.git#v0.0.1
+$ npm install -g git+ssh://git@github.com:3dna/buildify.git#v0.0.1
 
-buildify [build name]
+$ buildify [build name]
 
 ```
 
@@ -45,7 +45,9 @@ in `package.json`
 
 {
   ....
-
+  "scripts" : {
+    "build" : "buildify app"
+  },
   "browserify" : {
     "transform" : ["babelify"],
     "extensions" : [
@@ -67,9 +69,16 @@ in `package.json`
 
 ```
 
+then
+
+```
+$ npm run build
+```
+
+
 ## Todo
 
-- [] common externals
-- [] common external resolution with build level externals e.g. keep external bundles DRY
-- [] allow for custom paths for external bundles
-- [] add `commander` for more robust cli control
+- [ ] common externals
+- [ ] common external resolution with build level externals e.g. keep external bundles DRY
+- [ ] allow for custom paths for external bundles
+- [ ] add `commander` for more robust cli control

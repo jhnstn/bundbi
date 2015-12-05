@@ -2,6 +2,10 @@
   "name": "buildify",
   "version": "1.0.0",
   "description": "bundle builder",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/3dna/buildify"
+  },
   "scripts": {},
   "bin": {
     "buildify": "bin/cli.js"
