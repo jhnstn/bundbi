@@ -5,12 +5,11 @@ JS builder for nbuild
 ## install
 
 ```
-$ npm install git+ssh://git@github.com:3dna/buildify.git#v0.0.1
 
 # to get the cli
-$ npm install -g git+ssh://git@github.com:3dna/buildify.git#v0.0.1
+$ npm install -g bundbi
 
-$ buildify [build name]
+$ bundbi [build name]
 
 ```
 
@@ -46,7 +45,7 @@ in `package.json`
 {
   ....
   "scripts" : {
-    "build" : "buildify app"
+    "build" : "bundbi app"
   },
   "browserify" : {
     "transform" : ["babelify"],

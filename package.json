@@ -1,14 +1,14 @@
 {
-  "name": "buildify",
-  "version": "1.0.0",
-  "description": "bundle builder",
+  "name": "bundbi",
+  "version": "1.0.1",
+  "description": "bundle builder for browserify",
   "repository" : {
     "type" : "git",
-    "url" : "https://github.com/3dna/buildify"
+    "url" : "https://github.com/3dna/bundbi"
   },
   "scripts": {},
   "bin": {
-    "buildify": "bin/cli.js"
+    "bundbi": "bin/cli.js"
   },
   "author": "Jason Johnston",
   "license": "ISC",
