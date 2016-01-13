@@ -2,25 +2,37 @@
 'use strict'
 const path = require('path');
 const _ = require('underscore');
+const program = require('commander');
 const bundle = require('../lib/bundle');
-const errorExit = require('../lib/error');
+const exit = require('../lib/exit');
 
 let packageJson = require(path.resolve('./package.json'));
 
 if(!packageJson.browserify || !packageJson.browserify.build) {
-  console.log('nothing to do: can\'t find the build config');
-  process.exit(0);
+  exit('nothing to do: can\'t find the build config');
 }
 
 let builds = packageJson.browserify.build;
-let target = _.last(process.argv);
-let targetBundle = builds[target];
-let watch  = false;
+function bundleTarget(target,options) {
+  let targetBuild = builds[target];
+  if(!targetBuild) {
+    exit(`nothing to do for '${target}' bundle`);
+  }
 
-if (!targetBundle) {
-  console.log(`nothing to do for '${target}' bundle`);
-  process.exit(0);
+  let opts = _.pick(options, 'watch');
+  bundle(Object.assign(targetBuild, {target}),
+         Object.assign(packageJson.browserify, opts));
 }
 
-bundle(Object.assign(targetBundle, {target}),
-       Object.assign(packageJson.browserify, {watch}));
+program
+  .version(packageJson.version)
+  .arguments('<target>')
+  .option('-w, --watch', 'enable watch',false)
+  .action((target) => {
+    let targetBuild = builds[target];
+    if(!targetBuild) {
+      exit(`nothing to do for '${target}' bundle`);
+    }
+    bundle(Object.assign(targetBuild, {target}),
+           Object.assign(packageJson.browserify, {watch: program.watch}));
+  }).parse(process.argv);
