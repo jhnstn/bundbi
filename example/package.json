@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "build": "../bin/cli.js -w demo"
+  },
+  "browserify": {
+    "build": {
+      "demo": {
+        "main": "./app.js",
+        "outfile": "./app-bundle.js",
+        "transforms": [
+          "brfs",
+          "strictify"
+        ]
+      }
+    }
+  },
+  "dependencies": {
+    "babelify": "^7.2.0",
+    "brfs": "^1.4.2",
+    "strictify": "^0.2.0",
+    "underscore": "^1.8.3"
+  }
+}
