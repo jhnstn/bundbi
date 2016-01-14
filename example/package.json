@@ -7,7 +7,7 @@
       "demo": {
         "main": "./app.js",
         "outfile": "./app-bundle.js",
-        "transforms": [
+        "transform": [
           "brfs",
           "strictify"
         ]
