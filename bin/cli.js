@@ -14,12 +14,14 @@ const cli = meow(`
 
   Options
     -w, --watch Watches for changes in source
+    -d, --debug Enable Browserify debug setting
 
   Examples
     $ bundbi app -w
 `, {
     alias: {
-      w: 'watch'
+      w: 'watch',
+      d: 'debug'
     }
 });
 
@@ -31,6 +33,7 @@ if(!packageJson.browserify || !packageJson.browserify.build) {
 
 let builds = packageJson.browserify.build;
 let target = cli.input[0];
+
 let targetBuild = builds[target];
 if(!targetBuild) {
   exit(`nothing to do for '${target}' bundle`,0);
