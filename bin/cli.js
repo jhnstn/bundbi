@@ -15,6 +15,7 @@ const cli = meow(`
   Options
     -w, --watch Watches for changes in source
     -d, --debug Enable Browserify debug setting
+    --poll=INTERVAL Enable polling for NFS mounted directories
 
   Examples
     $ bundbi app -w
