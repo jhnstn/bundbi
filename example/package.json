@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "../bin/cli.js -w demo"
+    "build": "../bin/cli.js demo -wd --poll=50"
   },
   "browserify": {
     "build": {
@@ -8,8 +8,7 @@
         "main": "./app.js",
         "outfile": "./app-bundle.js",
         "transform": [
-          "brfs",
-          "strictify"
+          "brfs"
         ]
       }
     }
@@ -17,7 +16,6 @@
   "dependencies": {
     "babelify": "^7.2.0",
     "brfs": "^1.4.2",
-    "strictify": "^0.2.0",
     "underscore": "^1.8.3"
   }
 }
