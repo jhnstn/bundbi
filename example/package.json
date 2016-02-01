@@ -9,6 +9,9 @@
         "outfile": "./app-bundle.js",
         "transform": [
           "brfs"
+        ],
+        "external": [
+          "underscore"
         ]
       }
     }
