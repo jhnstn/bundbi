@@ -6,17 +6,17 @@ const proxyquire = require('proxyquire').noCallThru();
 const test = require('tape');
 const sinon = require('sinon');
 let exampleJson = require('../example/package.json');
-sinon.spy(fs, 'createWriteStream');
+sinon.stub(fs, 'createWriteStream').returns({on: sinon.spy()});
 
 const watchify = sinon.spy();
-const bundleMock = {
+const bundleStub = {
   on: sinon.spy(),
   pipe: sinon.spy()
 };
 
 const browserifyStub =  {
   require: sinon.spy(),
-  bundle: () => bundleMock ,
+  bundle: () => bundleStub,
   external: sinon.spy(),
   transform: sinon.spy(),
   plugin: sinon.spy(),
@@ -36,7 +36,6 @@ const bundle = proxyquire('../lib/bundle', {
 let targetBuild = Object.assign(exampleJson.browserify.build['demo'], {target: 'demo'});
 let outputFile = path.parse(targetBuild.outfile);
 
-
 function resetSpies(t) {
   browserifySpy.reset();
   browserifyStub.plugin.reset();
@@ -50,7 +49,7 @@ test('required params', required => {
   });
 });
 
-test('bundle' , bundleTest => {
+test('bundling' , bundleTest => {
   bundle(targetBuild);
 
   bundleTest.test('externals', external => {

@@ -4,7 +4,7 @@ bundle builder for browserify
 
 [![Build Status](https://travis-ci.org/jhnstn/bundbi.svg?branch=master)](https://travis-ci.org/jhnstn/bundbi)
 
-## install
+## Install
 
 ```
 
@@ -30,7 +30,7 @@ A build also accepts these attributes:
 
 Any config can be added directly under the the `browserify` key to provide configuration for all builds. These can be overridden in each `build` config.
 
-## External Builds
+## External builds
 
 If an `external` list is provided, `buildify` will create an external build with each module in the list. By default the bundle will be written to the same path as the build `outfile` with `-externals.js` appended to the file name e.g.
 
@@ -38,7 +38,13 @@ given `app/assets/app.js`
 
 The externals will be written to `app/assets/app-externals.js`
 
+## Running tests
+
+`npm test`
+
 ## Example
+
+see [example]('./example') for a working example. 
 
 in `package.json`
 
@@ -82,4 +88,3 @@ $ npm run build
 - [ ] common externals
 - [ ] common external resolution with build level externals e.g. keep external bundles DRY
 - [ ] allow for custom paths for external bundles
-- [ ] add `commander` for more robust cli control
