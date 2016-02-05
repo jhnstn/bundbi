@@ -1,6 +1,6 @@
-# buildify
+# bundbi
 
-JS builder for nbuild
+bundle builder for browserify
 
 ## install
 
