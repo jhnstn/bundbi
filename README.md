@@ -2,6 +2,8 @@
 
 bundle builder for browserify
 
+[![Build Status](https://travis-ci.org/jhnstn/bundbi.svg?branch=master)](https://travis-ci.org/jhnstn/bundbi)
+
 ## install
 
 ```
