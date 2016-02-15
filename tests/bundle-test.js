@@ -9,10 +9,10 @@ let exampleJson = require('../example/package.json');
 sinon.stub(fs, 'createWriteStream').returns({on: sinon.spy()});
 
 const watchify = sinon.spy();
-const bundleStub = {
-  on: sinon.spy(),
-  pipe: sinon.spy()
-};
+const bundleStub = {};
+bundleStub.on = sinon.spy(() => bundleStub),
+bundleStub.pipe =sinon.spy(() => bundleStub)
+
 
 const browserifyStub =  {
   require: sinon.spy(),
