@@ -98,6 +98,10 @@ test('bundling' , bundleTest => {
       t.equal(path.parse(targetBuild.main).base, browserifySpy.firstCall.args[0]);
       t.end();
     });
+    sourceOnly.test('sets externals', t => {
+      t.deepEqual(targetBuild.external, browserifyStub.external.firstCall.args[0]);
+      t.end();
+    });
     sourceOnly.end();
   });
   bundleTest.end();
