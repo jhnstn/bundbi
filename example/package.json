@@ -1,6 +1,8 @@
 {
   "scripts": {
-    "build": "../bin/cli.js demo -wd --poll=50"
+    "build": "../bin/cli.js demo",
+    "build:watch": "../bin/cli.js demo -wd --poll=50",
+    "build:source" : "../bin/cli.js demo --source-only"
   },
   "browserify": {
     "build": {

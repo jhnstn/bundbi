@@ -39,7 +39,7 @@ let outputFile = path.parse(targetBuild.outfile);
 function resetSpies(t) {
   browserifySpy.reset();
   browserifyStub.plugin.reset();
-  t.end();
+  t.end()
 }
 
 test('required params', required => {
@@ -87,10 +87,20 @@ test('bundling' , bundleTest => {
       t.end();
     });
 
-    source.test('teardown', resetSpies);
-
+    source.test('reset', resetSpies);
     source.end();
   });
+
+  bundleTest.test('source only', sourceOnly => {
+    bundle(targetBuild, {sourceOnly: true});
+
+    sourceOnly.test('source build only', t => {
+      t.equal(path.parse(targetBuild.main).base, browserifySpy.firstCall.args[0]);
+      t.end();
+    });
+    sourceOnly.end();
+  });
+  bundleTest.end();
 });
 
 test('plugins', plugin => {

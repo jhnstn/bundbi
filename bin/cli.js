@@ -15,6 +15,7 @@ const cli = meow(`
   Options
     -w, --watch Watches for changes in source
     -d, --debug Enable Browserify debug setting
+    --source-only Build the source files only
     --poll=INTERVAL Enable polling for NFS mounted directories
 
   Examples
@@ -22,7 +23,8 @@ const cli = meow(`
 `, {
     alias: {
       w: 'watch',
-      d: 'debug'
+      d: 'debug',
+      'source-only': 'sourceOnly'
     }
 });
 
