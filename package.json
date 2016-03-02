@@ -4,7 +4,7 @@
   "description": "bundle builder for browserify",
   "repository": {
     "type": "git",
-    "url": "https://github.com/3dna/bundbi"
+    "url": "https://github.com/jhnstn/bundbi"
   },
   "scripts": {
     "test": "tape ./tests/**-test.js | tnyan"
