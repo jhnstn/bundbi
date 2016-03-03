@@ -7,7 +7,7 @@
     "url": "https://github.com/jhnstn/bundbi"
   },
   "scripts": {
-    "test": "tape ./tests/**-test.js | tnyan"
+    "test": "tape ./tests/**-test.js | tap-spec"
   },
   "bin": {
     "bundbi": "bin/cli.js"
