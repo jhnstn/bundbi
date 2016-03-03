@@ -71,11 +71,6 @@ test('bundling' , bundleTest => {
       t.end();
     });
 
-    source.test('adds transforms', t => {
-      t.equal(targetBuild.transform[0], browserifyStub.transform.firstCall.args[0]);
-      t.end();
-    });
-
     source.test('sets externals', t => {
       t.deepEqual(targetBuild.external, browserifyStub.external.firstCall.args[0]);
       t.end();
